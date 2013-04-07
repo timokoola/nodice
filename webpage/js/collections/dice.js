@@ -15,11 +15,10 @@ var app = app || {};
 			}
 			return this.last().get('order') + 1;
 		},
-
 		comparator: function(die) {
 			return die.get('order');
 		}
 
 	});
-
+	app.Dice = new DiceList();
 })();

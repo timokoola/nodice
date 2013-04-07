@@ -9,7 +9,8 @@ var app = app || {};
 			title: "Die",
 			multiplier: 1,
 			type: 6,
-			modifier: 0
+			modifier: 0,
+			lastRoll: -Infinity
 		},
 
 		modifierPart: function() {
@@ -37,6 +38,7 @@ var app = app || {};
 			for(var i = 0; i < this.get("multiplier"); i++) {
 				result += Math.floor((Math.random() * this.get("type")) + 1);
 			}
+			this.save("lastRoll",result);
 			return result;
 		}
 

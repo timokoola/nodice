@@ -983,6 +983,11 @@ p {
     line-height: 1.35;
     font-style: italic; }
 
+p span {
+  font-size: 0.6em;
+  color: rgba(34, 34, 34, 0.3);
+}
+
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Molengo', Georgia, Times, serif;
