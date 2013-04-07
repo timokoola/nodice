@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Foundation 4</title>
+  <title>No dice</title>
 
 <link href="http://fonts.googleapis.com/css?family=Lekton" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
@@ -39,83 +39,24 @@
 						<div class="row">
 							<div class="dice" class="small-11 small-centered columns">
 							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
+							<h1 class="text-center">30</h1>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="small-3 columns">
+				<div class="small-3 pull-6 columns">
 					<div class="panel" >
 						<div class="row">
 							<div class="dice" class="small-11 small-centered columns">
-							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
+							<p class="text-center">Add a die!</p>
+							<h1 class="text-center">+</h1>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="small-3 columns">
-					<div class="panel" >
-						<div class="row">
-							<div class="dice" class="small-11 small-centered columns">
-							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="small-3 columns">
-					<div class="panel" >
-						<div class="row">
-							<div class="dice" class="small-11 small-centered columns">
-							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
-							</div>
-						</div>
-					</div>
-				</div>
-				</div>
-				<div class="row">
-				<div class="small-3 columns">
-					<div class="panel" >
-						<div class="row">
-							<div class="dice" class="small-11 small-centered columns">
-							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="small-3 columns">
-					<div class="panel" >
-						<div class="row">
-							<div class="dice" class="small-11 small-centered columns">
-							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="small-3 columns">
-					<div class="panel" >
-						<div class="row">
-							<div class="dice" class="small-11 small-centered columns">
-							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="small-3 columns">
-					<div class="panel" >
-						<div class="row">
-							<div class="dice" class="small-11 small-centered columns">
-							<p class="text-center">Dice 1 tralala</p>
-							<h1 class="text-center">1</h1>
-							</div>
-						</div>
-					</div>
-				</div>
+				
+				
+
 
 
 			</div>
@@ -128,13 +69,30 @@
 
 		</div>
 
-		<div class="small-2 columns">
+		<div class="small-2 pull-10 columns">
 			<h4>Getting Started</h4>
-			<p>We're stoked you want to try Foundation! To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
+			<p>No Dice? No problem? Now in alpha</p>
 
 			
 		</div>
 	</div>
+	<div class="row">
+		<hr />
+		<p>Copyright &#169; 2013 Moarub Oy.</p>
+	</div>
+
+  <script type="text/template" id="die-template">
+				<div class="small-3 columns">
+					<div class="panel" >
+						<div class="row">
+							<div class="dice" class="small-11 small-centered columns">
+							<p class="text-center"><%- title %></p>
+							<h1 class="text-center"><%- lastRoll %></h1>
+							</div>
+						</div>
+					</div>
+				</div>
+  </script>
 
   <script>
   document.write('<script src=' +
@@ -142,38 +100,17 @@
   '.js><\/script>')
   </script>
   
+  
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"> 
+  </script>
+  <script src="js/models/die.js"></script>
   <script src="js/foundation.min.js"></script>
-  <!--
+
+
+
   
-  <script src="js/foundation/foundation.js"></script>
-  
-  <script src="js/foundation/foundation.dropdown.js"></script>
-  
-  <script src="js/foundation/foundation.placeholder.js"></script>
-  
-  <script src="js/foundation/foundation.forms.js"></script>
-  
-  <script src="js/foundation/foundation.alerts.js"></script>
-  
-  <script src="js/foundation/foundation.magellan.js"></script>
-  
-  <script src="js/foundation/foundation.reveal.js"></script>
-  
-  <script src="js/foundation/foundation.tooltips.js"></script>
-  
-  <script src="js/foundation/foundation.clearing.js"></script>
-  
-  <script src="js/foundation/foundation.cookie.js"></script>
-  
-  <script src="js/foundation/foundation.joyride.js"></script>
-  
-  <script src="js/foundation/foundation.orbit.js"></script>
-  
-  <script src="js/foundation/foundation.section.js"></script>
-  
-  <script src="js/foundation/foundation.topbar.js"></script>
-  
-  -->
   
   <script>
     $(document).foundation();
