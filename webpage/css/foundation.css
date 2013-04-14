@@ -3830,14 +3830,14 @@ table {
   .f-dropdown.large {
     max-width: 800px; }
   .minus {
-    background: url(img/x.gif) left top no-repeat;
-    width: 10px;
-    height: 10px;
-    top: 8px;
-    right: 20px;
-    position: absolute;
-    display: block;
-    float: right;
+    font-size: 1.375em;
+line-height: 1;
+position: absolute;
+top: 0.1em;
+right: 0.7875em;
+color: #aaaaaa;
+font-weight: bold;
+cursor: pointer;
   }
 .pencil {
     background: url(img/pencil.gif) left top no-repeat;

@@ -9,7 +9,7 @@ var app = app || {};
 		events: {
 			"click .minus": "removeDie",
 			"click h1": "roll",
-			"click .pencil": "edit",
+			"click p.text-center": "edit",
 		},
 
 		template: _.template($("#die-template").html()),
@@ -23,7 +23,8 @@ var app = app || {};
 			var grhm = {};
 			grhm.description = this.model.description();
 			grhm.title = this.model.get("title");
-			grhm.lastRoll = this.model.get("lastRoll") > -Infinity ? this.model.get("lastRoll") : "-";
+			grhm.lastRoll = this.model.get("lastRoll") !== null && !isNaN(this.model.get("lastRoll")) ? this.model.get("lastRoll") : "-";
+			app.lastRoll = grhm.lastRoll;
 			this.$el.html(this.template(grhm));
 			return this;
 		}, 

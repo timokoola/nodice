@@ -10,7 +10,7 @@ var app = app || {};
 			multiplier: 1,
 			type: 6,
 			modifier: 0,
-			lastRoll: -Infinity
+			lastRoll: NaN
 		},
 
 		modifierPart: function() {
