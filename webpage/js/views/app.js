@@ -8,9 +8,8 @@ var app = app || {};
 
 		events: {
 			'click #addpanel': "addDie",
-			"click .button": "rollAll",
-			"keypress": "rollAll",
-			"click .panel p span": "changeType"
+			"click #rollbutton": "rollAll",
+			"click .makeitsobutton": "changeType"
 		},
 		
 
@@ -51,8 +50,18 @@ var app = app || {};
 			d.roll();
 		},
 		changeType: function(e) {
-			e.preventDefault();
-			alert("changing");
+			var title = $("input[name='title']").val();
+			var modifier = parseInt($("input[name='modifier']").val(),10);
+			var type = parseInt($("input[name='type']").val(),10);
+			var multiplier = parseInt($("input[name='multiplier']").val(),10);
+			var iid = $("input[name='id']").val();
+			var item = app.Dice.get(iid);
+			item.set("title",title);
+			item.set("modifier",modifier);
+			item.set("multiplier",multiplier);
+			item.set("type",type);
+			item.save();
+			$("#baseModal").foundation("reveal", "close");
 		}
 
 
