@@ -23,7 +23,7 @@ var app = app || {};
 			var grhm = {};
 			grhm.description = this.model.description();
 			grhm.title = this.model.get("title");
-			grhm.lastRoll = this.model.get("lastRoll") > 0 ? this.model.get("lastRoll") : "-";
+			grhm.lastRoll = this.model.get("lastRoll") > -Infinity ? this.model.get("lastRoll") : "-";
 			this.$el.html(this.template(grhm));
 			return this;
 		}, 

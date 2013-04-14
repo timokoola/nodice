@@ -88,7 +88,7 @@
       <span class="prefix">Multiplier</span>
     </div>
     <div class="small-8 large-9 columns">
-      <input type="text" placeholder="How many times to throw..." name="multiplier" value="<% print(get('multiplier')) %> " />
+      <input type="number" min="1" placeholder="How many times to throw..." name="multiplier" value="<% print(get('multiplier')) %>" />
     </div>
   </div>
   <div class="row collapse">
@@ -96,7 +96,7 @@
       <span class="prefix">Type</span>
     </div>
     <div class="small-8 large-9 columns">
-      <input type="text" placeholder="How many sides these dice have..." name="type" value="<% print(get('type')) %> " />
+      <input type="number" min="2" placeholder="How many sides these dice have..." name="type" value="<% print(get('type')) %>" />
     </div>
   </div>
   <div class="row collapse">
@@ -104,7 +104,7 @@
       <span class="prefix">Modifier</span>
     </div>
     <div class="small-8 large-9 columns">
-      <input type="text" placeholder="Modify result with..." name="modifier" value="<% print(get('modifier')) %> " />
+      <input type="number" placeholder="Modify result with..." name="modifier" value="<% print(get('modifier')) %>" />
     </div>
   </div>
   <div class="row collapse">
