@@ -8,7 +8,9 @@ var app = app || {};
 
 		events: {
 			'click #addpanel': "addDie",
-			"click .button": "rollAll"
+			"click .button": "rollAll",
+			"keypress": "rollAll",
+			"click .panel p span": "changeType"
 		},
 		
 
@@ -23,7 +25,7 @@ var app = app || {};
 		
 		addOne: function(die) {
 			var view = new app.DieView({model: die});
-			$("#diced").append(view.render().el);
+			$("#diced").prepend(view.render().el);
 
 		},
 		addAll: function(die) {
@@ -41,11 +43,16 @@ var app = app || {};
 			//alert("Rock!");
 			app.Dice.create(this.newAttrs());
 		},
-		rollAll: function() {
+		rollAll: function(e) {
+			e.preventDefault();
 			app.Dice.each(this.rollOne,this);
 		},
 		rollOne: function(d) {
 			d.roll();
+		},
+		changeType: function(e) {
+			e.preventDefault();
+			alert("changing");
 		}
 
 

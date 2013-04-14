@@ -6,7 +6,7 @@ var app = app || {};
 
 	app.Die = Backbone.Model.extend({
 		defaults: {
-			title: "Die",
+			title: "Dice",
 			multiplier: 1,
 			type: 6,
 			modifier: 0,

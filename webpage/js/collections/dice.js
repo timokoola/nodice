@@ -5,6 +5,7 @@ var app = app || {};
 
 
 	var DiceList = Backbone.Collection.extend({
+		url: "/dice",
 		model: app.Die,
 
 		localStorage: new Backbone.LocalStorage('nodice-backbone'),

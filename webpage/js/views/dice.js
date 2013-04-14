@@ -8,13 +8,14 @@ var app = app || {};
 		
 
 		events: {
-			"click .diepanel": "roll",
-			
+			"click .minus": "removeDie",
+			"click h1": "roll"
 		},
 
 		template: _.template($("#die-template").html()),
 		initialize: function () {
 			this.listenTo(this.model, 'change', this.render);
+			this.listenTo(this.model, 'destroy', this.remove);
 		},
 
 		render: function () {
@@ -28,6 +29,10 @@ var app = app || {};
 
 		roll: function (e) {
 			this.model.roll();
+		},
+		removeDie: function (e) {
+			e.preventDefault();
+			this.model.destroy();
 		}
 
 	});

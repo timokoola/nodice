@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -72,8 +73,10 @@
 					<div class="panel diepanel" >
 						<div class="row">
 							<div class="dice" class="small-11 small-centered columns">
+							<span class="minus"></span>
 							<p class="text-center"><%- title %> <span><%- description %></span></p>
 							<h1 class="text-center"><%- lastRoll %></h1>
+							<span class="pencil"></span>
 							</div>
 						</div>
 					</div>
@@ -93,12 +96,13 @@
 
   </script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js"></script>
-    <script src="js/models/die.js"></script>
+  <script src="js/models/die.js"></script>
   <script src="js/collections/dice.js"></script>
   <script src="js/views/dice.js"></script>
   <script src="js/views/app.js"></script>
   <script src="js/foundation.min.js"></script>
-   <script src="js/app.js"></script>
+  <script src="js/routers/router.js"></script>
+  <script src="js/app.js"></script>
 
 
 
