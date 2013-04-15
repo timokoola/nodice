@@ -45,9 +45,8 @@ var app = app || {};
 		},
 		rollAll: function(e) {
 			e.preventDefault();
-			$("h1.roll-number").hide();
 			app.Dice.each(this.rollOne,this);
-			$("h1.roll-number").fadeIn("slow");
+			//TODO: we ought to call fadeIn for each invidual die
 		},
 		rollOne: function(d) {
 			d.roll();
