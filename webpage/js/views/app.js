@@ -24,8 +24,9 @@ var app = app || {};
 		
 		addOne: function(die) {
 			var view = new app.DieView({model: die});
+			view.render().$el.hide();
 			$("#diced").prepend(view.render().el);
-
+			view.render().$el.fadeIn("slow");
 		},
 		addAll: function(die) {
 			this.$("#diced").html("");
@@ -44,7 +45,9 @@ var app = app || {};
 		},
 		rollAll: function(e) {
 			e.preventDefault();
+			$("h1.roll-number").hide();
 			app.Dice.each(this.rollOne,this);
+			$("h1.roll-number").fadeIn("slow");
 		},
 		rollOne: function(d) {
 			d.roll();

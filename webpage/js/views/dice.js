@@ -20,17 +20,25 @@ var app = app || {};
 		},
 
 		render: function () {
+			this.$el.find("h1").hide();
 			var grhm = {};
 			grhm.description = this.model.description();
 			grhm.title = this.model.get("title");
 			grhm.lastRoll = this.model.get("lastRoll") !== null && !isNaN(this.model.get("lastRoll")) ? this.model.get("lastRoll") : "-";
 			app.lastRoll = grhm.lastRoll;
 			this.$el.html(this.template(grhm));
+			this.$el.find("h1").fadeIn("slow");
 			return this;
 		}, 
 
 		roll: function (e) {
-			this.model.roll();
+			app.h1 = this.$el.find("h1");
+			app.that = this;
+			var hideReady = function () {
+				app.that.model.roll();
+				$(app.h1).fadeIn("fast");
+			};
+			$(app.h1).fadeOut("fast", hideReady);
 		},
 		removeDie: function (e) {
 			e.preventDefault();

@@ -71,7 +71,7 @@
 
   
    <script type="text/template" id="die-edit-template">
-<div id="baseModal" class="reveal-modal medium">
+<div id="baseModal" class="reveal-modal large">
 	<form>
 		<p class="text-center"><% print(get('title')) %> <span><% print(description()) %></span></p>
 		<input type="hidden" name="id" value="<% print(get('id')) %>" />
@@ -80,7 +80,7 @@
       <span class="prefix right">Name</span>
     </div>
     <div class="small-8 large-9 columns">
-      <input type="text" placeholder="What shall we call it..." name="title" value="<% print(get('title')) %> " />
+      <input type="text" placeholder="What shall we call it..." name="title" value="<% print(get('title')) %>" />
     </div>
   </div>
   <div class="row collapse">
@@ -127,7 +127,7 @@
 							<div class="dice" class="small-11 small-centered columns">
 							<a class="minus">&#215;</a>
 							<p class="text-center"><%- title %> <span><%- description %></span></p>
-							<h1 class="text-center"><%- lastRoll %></h1>
+							<h1 class="text-center roll-number"><%- lastRoll %></h1>
 							</div>
 						</div>
 					</div>
