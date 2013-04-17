@@ -3293,7 +3293,26 @@ kbd {
   box-shadow: 1px 1px 10px #222222; 
   margin-bottom: 1.25em;
   padding: 1.25em;
-  background: #f2f2ff; }
+  background: #f2f2ff;
+/* IE10 Consumer Preview */ 
+background-image: -ms-radial-gradient(center, circle closest-side, #FFFFFF 0%, #F2F2FF 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-radial-gradient(center, circle closest-side, #FFFFFF 0%, #F2F2FF 100%);
+
+/* Opera */ 
+background-image: -o-radial-gradient(center, circle closest-side, #FFFFFF 0%, #F2F2FF 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(radial, center center, 0, center center, 140, color-stop(0, #FFFFFF), color-stop(1, #F2F2FF));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-radial-gradient(center, circle closest-side, #FFFFFF 0%, #F2F2FF 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: radial-gradient(circle closest-side at center, #FFFFFF 0%, #F2F2FF 100%);
+
+   }
   .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
     color: #333333; }
   .panel > :first-child {
