@@ -10,12 +10,61 @@
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    xmlns:app="http://schemas.android.com/apk/res/com.moarub.diceness"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/silver_bg"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DiceActivity" android:background="@drawable/silver_bg" >
+    tools:context=".DiceActivity" >
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="a1513fa4bba0888"
+        ads:loadAdOnCreate="true"
+        ads:testDevices="TEST_EMULATOR, CCFEE0192EA51B9009A1396ACCA2C53F" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/adView"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/adView"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <com.moarub.diceness.DieView
+                android:id="@+id/dieView1"
+                android:layout_width="160dp"
+                android:layout_height="160dp" />
+
+            <com.moarub.diceness.DieView
+                android:id="@+id/dieView2"
+                android:layout_width="160dp"
+                android:layout_height="160dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <com.moarub.diceness.DieView
+                android:id="@+id/dieView3"
+                android:layout_width="160dp"
+                android:layout_height="160dp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
