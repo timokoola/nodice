@@ -14,20 +14,19 @@ public class Die {
 		this.type = type;
 		this.modifier = modifier;
 	}
-	
+
 	public void roll() {
 		Random r = new Random();
 		fLastRoll = 0;
-		for(int i = 0; i < multiplier; i++) {
+		for (int i = 0; i < multiplier; i++) {
 			fLastRoll += r.nextInt(type) + 1;
 		}
 		fLastRoll += modifier;
 	}
-	
+
 	public int getLastRoll() {
 		return fLastRoll;
 	}
-	
 
 	@Override
 	public boolean equals(Object obj) {

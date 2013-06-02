@@ -17,7 +17,7 @@ public class DiceApplication extends Application {
 	
 	public void shakeAll(boolean stop) {
 		for(DieView dv: fDice) {
-			if(dv != null) {
+			if(dv != null && !dv.isLocked()) {
 				if(stop){
 					dv.shake();
 				} else {

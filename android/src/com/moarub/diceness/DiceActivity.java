@@ -101,6 +101,7 @@ public class DiceActivity extends Activity implements SensorEventListener {
 	private void stopShaking() {
 		getDiceApplication().shakeAll(false);
 		DicePlayer.stopPlaying(fStreamId);
+		DicePlayer.playRoll(this);
 		fStreamId = 0;
 	}
 	

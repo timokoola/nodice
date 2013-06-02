@@ -53,6 +53,12 @@
                 android:layout_width="160dp"
                 android:layout_height="160dp" />
 
+            <com.moarub.diceness.DieView
+                android:id="@+id/dieView5"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                 />
+
         </LinearLayout>
 
         <LinearLayout
@@ -64,6 +70,17 @@
                 android:id="@+id/dieView3"
                 android:layout_width="160dp"
                 android:layout_height="160dp" />
+
+            <com.moarub.diceness.DieView
+                android:id="@+id/dieView4"
+                android:layout_width="160dp"
+                android:layout_height="160dp" />
+
+            <com.moarub.diceness.SettingsButton
+                android:id="@+id/settingsButton1"
+                android:layout_width="160dp"
+                android:layout_height="160dp" />
+
         </LinearLayout>
     </LinearLayout>
 
