@@ -40,6 +40,13 @@ public class SettingsActivity extends PreferenceActivity {
 	private static final boolean ALWAYS_SIMPLE_PREFS = false;
 
 	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.AppTheme);
+		super.onCreate(savedInstanceState);
+	}
+	
+	
+	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 
