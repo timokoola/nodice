@@ -78,7 +78,7 @@
                 android:layout_height="0dp"
                 android:layout_weight=".33" />
 
-            <com.moarub.diceness.SettingsButton
+            <com.moarub.diceness.ActionButton
                 android:id="@+id/settingsButton1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

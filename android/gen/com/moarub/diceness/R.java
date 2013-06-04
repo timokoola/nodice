@@ -238,12 +238,13 @@ containing a value of this type.
         public static final int ic_action_lock_closed=0x7f020005;
         public static final int ic_action_lock_open=0x7f020006;
         public static final int ic_action_pin=0x7f020007;
-        public static final int ic_action_setings=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int silver_bg=0x7f02000a;
+        public static final int ic_action_rollall=0x7f020008;
+        public static final int ic_action_setings=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int silver_bg=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f060019;
+        public static final int action_settings=0x7f06001c;
         public static final int adView=0x7f060012;
         public static final int alignBounds=0x7f060002;
         public static final int alignMargins=0x7f060003;
@@ -254,10 +255,13 @@ containing a value of this type.
         public static final int clip_horizontal=0x7f06000f;
         public static final int clip_vertical=0x7f06000e;
         public static final int dieView1=0x7f060013;
+        public static final int dieView10=0x7f06001b;
         public static final int dieView2=0x7f060014;
         public static final int dieView3=0x7f060016;
         public static final int dieView4=0x7f060017;
         public static final int dieView5=0x7f060015;
+        public static final int dieView8=0x7f060019;
+        public static final int dieView9=0x7f06001a;
         public static final int end=0x7f060011;
         public static final int fill=0x7f06000d;
         public static final int fill_horizontal=0x7f06000b;
