@@ -29,22 +29,30 @@ public class ActionButton extends View {
 	protected DiceActivity fContext;
 	private TextPaint fRollingPaint;
 	protected Bitmap fIcon;
+	protected Bitmap fIcon2;
+	private MotionEvent fOriginalEvent;
 
 	public ActionButton(Context context) {
 		super(context);
-		fContext = (DiceActivity) context;
+		if (!isInEditMode()) {
+			fContext = (DiceActivity) context;
+		}
 		init();
 	}
 
 	public ActionButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		fContext = (DiceActivity) context;
+		if (!isInEditMode()) {
+			fContext = (DiceActivity) context;
+		}
 		init();
 	}
 
 	public ActionButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		fContext = (DiceActivity) context;
+		if (!isInEditMode()) {
+			fContext = (DiceActivity) context;
+		}
 		init();
 	}
 
@@ -71,25 +79,41 @@ public class ActionButton extends View {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if(event.getAction() == MotionEvent.ACTION_DOWN) {
+			saveOrigin(event);
 			setPressed(true);
 			invalidate();
 		} else if (event.getAction() == MotionEvent.ACTION_UP) {
-			if(insideBorders(event)){
+			if(insideBorders(event) && fOriginalEvent.getY() < fBox.centerY()){
 				doAction();
+			} else if(insideBorders(event)) {
+				doAction2();
 			}
 			setPressed(false);
 			invalidate();
+			clearOrigin();
 		}
 		
 		return true;
 	}
 
+	protected void doAction2() {
+		doAction();
+	}
+
+	private void clearOrigin() {
+		fOriginalEvent = null;
+	}
+
+	private void saveOrigin(MotionEvent event) {
+		fOriginalEvent = event;
+	}
+
 	protected void doAction() {
 		launchPreferences();
 	}
-
+	
 	private boolean insideBorders(MotionEvent event) {
-		return true;
+		return fBox.contains(event.getX(), event.getY());
 	}
 
 	private void launchPreferences() {
@@ -139,12 +163,23 @@ public class ActionButton extends View {
 			canvas.drawRoundRect(fBox, 8, 8, fBorderPaint);
 
 			canvas.save();
-			// canvas.translate(canvas.getWidth()/2.f-fIcon.getMinimumWidth()/2.f,
-			// canvas.getHeight()/2.f-fIcon.getMinimumHeight()/2.f);
-			canvas.drawBitmap(fIcon,
-					getWidth() / 2.f - fIcon.getWidth() / 2.f,
-					getHeight() / 2.f - fIcon.getHeight() / 2.f,
-					new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
+			if (fIcon2 == null) {
+				// canvas.translate(canvas.getWidth()/2.f-fIcon.getMinimumWidth()/2.f,
+				// canvas.getHeight()/2.f-fIcon.getMinimumHeight()/2.f);
+				canvas.drawBitmap(fIcon, getWidth() / 2.f - fIcon.getWidth()
+						/ 2.f, getHeight() / 2.f - fIcon.getHeight() / 2.f,
+						new Paint(Paint.ANTI_ALIAS_FLAG
+								| Paint.FILTER_BITMAP_FLAG));
+			} else {
+				canvas.drawBitmap(fIcon, getWidth() / 2.f - fIcon.getWidth()
+						/ 2.f, getHeight() / 4.f - fIcon.getHeight() / 2.f,
+						new Paint(Paint.ANTI_ALIAS_FLAG
+								| Paint.FILTER_BITMAP_FLAG));
+				canvas.drawBitmap(fIcon2, getWidth() / 2.f - fIcon.getWidth()
+						/ 2.f, 3 * (getHeight() / 4.f) - fIcon.getHeight() / 2.f,
+						new Paint(Paint.ANTI_ALIAS_FLAG
+								| Paint.FILTER_BITMAP_FLAG));
+			}
 			canvas.restore();
 
 		}

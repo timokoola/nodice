@@ -21,7 +21,7 @@ public class RollAllButton extends ActionButton {
 	}
 
 	@Override
-	protected void doAction() {
+	protected void doAction2() {
 		fApplication = fApplication != null ? fApplication: ((DiceActivity) fContext).getDiceApplication();
 		fApplication.shakeAll(true);
 		DicePlayer.playShake(fContext);
@@ -29,6 +29,12 @@ public class RollAllButton extends ActionButton {
 			fShaker = getShaker();
 			postDelayed(fShaker, 900);
 		}
+	}
+	
+	@Override
+	protected void doAction() {
+		fApplication = fApplication != null ? fApplication: ((DiceActivity) fContext).getDiceApplication();
+		fApplication.unlockAll();
 	}
 
 	private Runnable getShaker() {
@@ -46,7 +52,9 @@ public class RollAllButton extends ActionButton {
 
 	@Override
 	protected void initIcon() {
-		fIcon = BitmapFactory.decodeResource(getResources(),
+		fIcon2 = BitmapFactory.decodeResource(getResources(),
 				R.drawable.ic_action_rollall);
+		fIcon = BitmapFactory.decodeResource(getResources(),
+				R.drawable.ic_action__lock_open);
 	}
 }

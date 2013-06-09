@@ -26,5 +26,13 @@ public class DiceApplication extends Application {
 			}
 		}
 	}
+
+	public void unlockAll() {
+		for(DieView dv: fDice) {
+			if(dv != null)  {
+				dv.unlock();
+			}
+		}
+	}
 	
 }

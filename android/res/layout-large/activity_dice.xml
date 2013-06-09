@@ -81,7 +81,7 @@
                 android:layout_height="0dp"
                 android:layout_weight=".33" />
 
-            <com.moarub.diceness.RollAllButton
+            <com.moarub.diceness.DieView
                 android:id="@+id/dieView10"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -107,7 +107,7 @@
                 android:layout_height="0dp"
                 android:layout_weight=".33" />
 
-            <com.moarub.diceness.ActionButton
+            <com.moarub.diceness.RollAllButton
                 android:id="@+id/settingsButton1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

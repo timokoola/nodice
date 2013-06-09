@@ -273,4 +273,9 @@ public class DieView extends View {
 		return fLocked;
 	}
 
+	public void unlock() {
+		fLocked = false;
+		invalidate();
+	}
+
 }
