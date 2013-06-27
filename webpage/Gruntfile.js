@@ -1,11 +1,23 @@
 module.exports = function(grunt) {
+
+  // Configuration goes here
   grunt.initConfig({
-    qunit: {
-      all: ['test/index.html']
-    }
+    
+    // Configure the copy task to move files from the development to production folders
+    copy: {
+      target: {
+        files: [
+        {expand: true,  src: ['./js/**'], dest: 'webdev/'},
+        {expand: true,  src: ['./css/**'], dest: 'webdev/'},
+        ]
+      }
+    },
   });
 
-  grunt.loadNpmTasks('grunt-contrib-qunit');
+  // Load plugins here
+  grunt.loadNpmTasks('grunt-contrib');
 
-  grunt.registerTask('default', ['qunit']);
+  // Define your tasks here
+  grunt.registerTask('default', ['copy']);
+
 };
