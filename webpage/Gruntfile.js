@@ -21,10 +21,9 @@ module.exports = function(grunt) {
       }
     },
     "useminPrepare": {
-     cwd: "prod/",
-     html: 'index.html',
+     html: 'prod/index.html',
      options: {
-      dest: 'prod'
+      dest: 'prod/'
     }
   },
   uglify: {
@@ -34,28 +33,19 @@ module.exports = function(grunt) {
       dest: "prod/<%= pkg.name + '-' + pkg.version %>.js"
     }]
   }
-
 },
 cssmin: {
  combine: {
   files: {
     "prod/<%= pkg.name + '-' + pkg.version %>.css": [ './css/normalize.css','./css/foundation.css']
   }
-},
-minify: {
-  expand: true,
-  cwd: "prod/",
-  src: [ '**.css'],
-  dest: 'prod/',
-  ext: '.min.css'
 }
-}, 
+},
 "usemin": {
-  cwd: "prod/",
   html: ['*.html'],
   css: ['*.css'],
   options: {
-    dirs: ['prod']
+    dirs: ['prod/']
   }
 }
 
@@ -66,6 +56,6 @@ minify: {
   grunt.loadNpmTasks('grunt-contrib');
 
   // Define your tasks here
-  grunt.registerTask('default', ['copy', 'uglify', "cssmin", "useminPrepare","usemin"]);
+  grunt.registerTask('default', ['copy', "useminPrepare",'uglify', "cssmin", "usemin"]);
 
 };
