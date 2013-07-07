@@ -6,13 +6,15 @@
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Diceness</title>
+  <meta name=”description” content=”Diceness is the premier dice replacement application.”/>
+
+  <title>Diceness - the Dice Replacement Web App</title>
 
   <link href="http://fonts.googleapis.com/css?family=Lekton" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="icon.png" />
   <link rel="apple-touch-icon" href="icon_114.png" />
-  <!-- build:css  -->
+  <!-- build:css app.css-->
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/foundation.css" />
   <!-- endbuild -->
@@ -21,13 +23,14 @@
 </head>
 <body class="antialiased">
   <div id="fb-root"></div>
+  <!--
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+  }(document, 'script', 'facebook-jssdk'));</script> -->
 
   <div class="row">
     <div class="small-12 columns">
@@ -87,16 +90,15 @@
   </a>
 </div>
 </div>
+<!--
 <div class="row">
   <div class="small-12 columns">
     <h4>Share the love</h4>
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="dicenessapp" data-size="large">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     <div class="fb-like" data-href="http://www.shareness.com" data-send="true" data-width="450" data-show-faces="true"></div>
-    <!-- Place this tag where you want the +1 button to render. -->
     <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
 
-    <!-- Place this tag after the last +1 button tag. -->
     <script type="text/javascript">
     (function() {
       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
@@ -106,7 +108,7 @@
     </script>
 
   </div>
-</div>
+</div>  -->
 
 
 <div class="row">
@@ -190,7 +192,6 @@ document.write('<script src=' +
   '.js><\/script>')
 </script>
 
-
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"> 
@@ -199,16 +200,17 @@ document.write('<script src=' +
 <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js"></script>
 
 <script src="js/models/die.js"></script>
+<!-- build:js diceapp.js -->
 <script src="js/collections/dice.js"></script>
 <script src="js/views/dice.js"></script>
 <script src="js/views/app.js"></script>
-<script src="js/foundation.min.js"></script>
-<script src="js/foundation/foundation.reveal.js"></script>
 <script src="js/routers/router.js"></script>
 <script src="js/app.js"></script>
+<!-- endbuild -->
 
 
-
+<script src="js/foundation.min.js"></script>
+<script src="js/foundation/foundation.reveal.js"></script>
 
 
 <script>

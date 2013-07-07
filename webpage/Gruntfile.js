@@ -10,15 +10,26 @@ module.exports = function(grunt) {
       target: {
         files: [
         {expand: true,  src: ['./js/**'], dest: 'webdev/'},
+        {expand: true,  src: ['./js/**'], dest: 'prod/'},
         {expand: true,  src: ['./img/**'], dest: 'webdev/'},
         {expand: true,  src: ['./img/**'], dest: 'prod/'},
         {expand: true,  src: ['./css/**'], dest: 'webdev/'},
         {expand: true,  src: ['./index.html'], dest: 'webdev/'},
         {expand: true,  src: ['./index.html'], dest: 'prod/'},
-        {expand: true,  src: ['./nodice.js'], dest: 'webdev/'},
-        {expand: true,  src: ['./*.txt'], dest: 'webdev/'},
+        {expand: true,  src: ['./favicon.ico'], dest: 'webdev/'},
+        {expand: true,  src: ['./favicon.ico'], dest: 'prod/'},
+        {expand: true,  src: ['./*.txt'], dest: "webdev/"},
+        {expand: true,  src: ['./*.txt'], dest: "prod/"},
+        ]
+      }, 
+      localwebserver: {
+        files: [
+        {expand: true, src: ["prod/**"], dest: "/usr/local/Cellar/nginx/1.2.8/html/"}
         ]
       }
+    },
+    jshint: {
+      all: ['Gruntfile.js', "js/app.js"]
     },
     "useminPrepare": {
      html: 'prod/index.html',
@@ -29,20 +40,20 @@ module.exports = function(grunt) {
   uglify: {
    dist: {
     files: [{
-      src: ["nodice.js", "js/**/*.js"],
-      dest: "prod/<%= pkg.name + '-' + pkg.version %>.js"
+      src: ["js/**/*.js"],
+      dest: "prod/diceapp.js"
     }]
   }
 },
 cssmin: {
  combine: {
   files: {
-    "prod/<%= pkg.name + '-' + pkg.version %>.css": [ './css/normalize.css','./css/foundation.css']
+    "prod/app.css": [ './css/normalize.css','./css/foundation.css']
   }
 }
 },
 "usemin": {
-  html: ['*.html'],
+  html: ['prod/*.html'],
   css: ['*.css'],
   options: {
     dirs: ['prod/']
@@ -52,10 +63,11 @@ cssmin: {
 
 });
   // Load plugins here
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib');
 
   // Define your tasks here
-  grunt.registerTask('default', ['copy', "useminPrepare",'uglify', "cssmin", "usemin"]);
+  grunt.registerTask('default', ['copy:target', "jshint","useminPrepare",'uglify', "cssmin", "usemin", "copy:localwebserver"]);
 
 };
