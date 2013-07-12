@@ -3,5 +3,9 @@ raw
 *~
 .DS_Store
 node_modules
+*.tar.gz
 webdev/
 prod/
+deploy/
+www/
+*.pem

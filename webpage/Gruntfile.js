@@ -6,12 +6,17 @@ module.exports = function(grunt) {
     // load all grunt tasks
     
     // Configure the copy task to move files from the development to production folders
+    gitinfo: {
+
+    },
     copy: {
       target: {
         files: [
         {expand: true,  src: ['./js/**'], dest: 'webdev/'},
         {expand: true,  src: ['./js/**'], dest: 'prod/'},
         {expand: true,  src: ['./img/**'], dest: 'webdev/'},
+        {expand: true,  src: ['./**.png'], dest: 'prod/'},
+        {expand: true,  src: ['./**.png'], dest: 'webdev/'},
         {expand: true,  src: ['./img/**'], dest: 'prod/'},
         {expand: true,  src: ['./css/**'], dest: 'webdev/'},
         {expand: true,  src: ['./index.html'], dest: 'webdev/'},
@@ -60,35 +65,48 @@ cssmin: {
   }
 },
 htmlmin: {
-            dist: {
-                options: {
-                    removeCommentsFromCDATA: true,
-                    collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: '.',
-                    src: '*.html',
-                    dest: 'prod'
-                }]
-            }
-        },
-
+  dist: {
+    options: {
+      removeCommentsFromCDATA: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: true,
+      removeRedundantAttributes: true,
+      useShortDoctype: true,
+      removeEmptyAttributes: true,
+      removeOptionalTags: true
+    },
+    files: [{
+      expand: true,
+      cwd: '.',
+      src: '*.html',
+      dest: 'prod'
+    }]
+  }
+},
+shell: {
+  www: {
+    command: "cp -r prod/ www/"
+  },
+  deploy: {
+    command: 'tar -czf <%= gitinfo.local.branch.current.shortSHA %>.tar.gz ./www/'
+  },
+  copyover: {
+    command: 'scp -i $SCPKEY <%= gitinfo.local.branch.current.shortSHA %>.tar.gz ubuntu@46.137.77.80:'
+  }
+},
 
 });
   // Load plugins here
+  grunt.loadNpmTasks('grunt-gitinfo');
+  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib');
 
   // Define your tasks here
-  grunt.registerTask('default', ['copy:target', "jshint","useminPrepare",'uglify', "cssmin", "usemin", "copy:localwebserver"]);
+  grunt.registerTask('default', ['gitinfo','copy:target', "jshint","useminPrepare",'uglify', "cssmin", "usemin", "shell:www", "shell:deploy", "shell:copyover", "copy:localwebserver"]);
 
 };
