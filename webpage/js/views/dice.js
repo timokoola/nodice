@@ -8,7 +8,7 @@ var app = app || {};
 
 		events: {
 			"click .minus": "removeDie",
-			"click h1": "roll",
+			"click h2": "roll",
 			"click p.text-center": "edit",
 		},
 
@@ -27,12 +27,12 @@ var app = app || {};
 			grhm.lastRoll = this.model.get("lastRoll") !== null && !isNaN(this.model.get("lastRoll")) ? this.model.get("lastRoll") : "-";
 			app.lastRoll = grhm.lastRoll;
 			this.$el.html(this.template(grhm));
-			this.$el.find("h1").fadeIn("slow");
+			this.$el.find("h2").fadeIn("slow");
 			return this;
 		}, 
 
 		roll: function (e) {
-			app.h1 = this.$el.find("h1");
+			app.h1 = this.$el.find("h2");
 			app.that = this;
 			var hideReady = function () {
 				app.that.model.roll();

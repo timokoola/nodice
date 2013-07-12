@@ -58,11 +58,32 @@ cssmin: {
   options: {
     dirs: ['prod/']
   }
-}
+},
+htmlmin: {
+            dist: {
+                options: {
+                    removeCommentsFromCDATA: true,
+                    collapseWhitespace: true,
+                    collapseBooleanAttributes: true,
+                    removeAttributeQuotes: true,
+                    removeRedundantAttributes: true,
+                    useShortDoctype: true,
+                    removeEmptyAttributes: true,
+                    removeOptionalTags: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '.',
+                    src: '*.html',
+                    dest: 'prod'
+                }]
+            }
+        },
 
 
 });
   // Load plugins here
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib');

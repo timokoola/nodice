@@ -4,5 +4,8 @@
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: jQuery, Orbit, Reveal
-  Software: Coda, Textmate, Git
+  Components: jQuery, Backbone.js, Foundation, 
+  Software: Sublime Text, Git, Grunt
+
+/* Diceness.com */
+	Created by: Timo Koola
