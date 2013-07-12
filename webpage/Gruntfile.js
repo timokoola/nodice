@@ -19,12 +19,14 @@ module.exports = function(grunt) {
         {expand: true,  src: ['./**.png'], dest: 'webdev/'},
         {expand: true,  src: ['./img/**'], dest: 'prod/'},
         {expand: true,  src: ['./css/**'], dest: 'webdev/'},
-        {expand: true,  src: ['./index.html'], dest: 'webdev/'},
-        {expand: true,  src: ['./index.html'], dest: 'prod/'},
+        {expand: true,  src: ['./*.html'], dest: 'webdev/'},
+        {expand: true,  src: ['./*.html'], dest: 'prod/'},
         {expand: true,  src: ['./favicon.ico'], dest: 'webdev/'},
         {expand: true,  src: ['./favicon.ico'], dest: 'prod/'},
         {expand: true,  src: ['./*.txt'], dest: "webdev/"},
         {expand: true,  src: ['./*.txt'], dest: "prod/"},
+        {expand: true,  src: ['./*.xml'], dest: "webdev/"},
+        {expand: true,  src: ['./*.xml'], dest: "prod/"},
         ]
       }, 
       localwebserver: {
