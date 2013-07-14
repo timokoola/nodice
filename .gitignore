@@ -4,4 +4,5 @@ raw
 .DS_Store
 node_modules
 keys.keys
+test.keys
 bin/*

@@ -1,9 +1,9 @@
 import tweepy, sys, os
 import argparse # requires 2.7
-import random, re
-
+import random, re, daemon, lockfile
 
 diere = re.compile('(\d+)[dD](\d+)([+-]?\d*)')
+useraccount = "@timotestikoola"
 
 def handle_command_line():
     parser = argparse.ArgumentParser(description="Run streaming twitter bot")
@@ -38,7 +38,7 @@ class Dice:
         for i in xrange(self.multiplier):
             val.append(r.randint(1,self.type))
         self.lastRoll = sum(val) + self.modifier
-        self.lastRollStr = "Rolled %d for rolling %s = (%s%s)" % (self.lastRoll, repr(self), "+".join(map(str,val)), self.mod_str())
+        self.lastRollStr = "Rolled %d using %s = (%s%s)" % (self.lastRoll, repr(self), "+".join(map(str,val)), self.mod_str())
 
 
 class DiceParser:
@@ -53,12 +53,12 @@ class ReplyGenerator:
     def __init__(self,tweet,replyto):
         self.tweet = tweet
         self.replyto = replyto
-        dp = DiceParser(tweet)
+        dp = DiceParser(tweet.split()[1])
         self.dice = dp.die
         self.dice.roll()
 
     def reply(self):
-        reply = "@%s %s" % (self.replyto,self.dice.lastRollStr)
+        reply = "%s" % (self.dice.lastRollStr)
         return reply
 
 
@@ -77,7 +77,7 @@ class CustomStreamListener(tweepy.StreamListener):
                                       status.author.screen_name, 
                                       status.created_at, 
                                       status.source,)
-            if status.text.find("@timotestikoola") == 0:
+            if status.text.find(useraccount) == 0:
                 rg = ReplyGenerator(status.text,status.author.screen_name)
                 self.tweepyapi.update_status(rg.reply())
 
@@ -109,13 +109,18 @@ class TweepyHelper:
         listener.tweepyapi = tweepy.API(auth)
         self.api = tweepy.streaming.Stream(auth, listener, timeout=60)
 
+def run(api):
+    api.filter(track=[useraccount])
+
 
 
 if __name__ == "__main__":
     args = handle_command_line()
+    api = (TweepyHelper(args.keyfile)).api
+    ferr = open("streamingerrs.txt", "w+")
     if not args.test:
-        api = (TweepyHelper(args.keyfile)).api
-        api.filter(track=["@timotestikoola"])
+        with daemon.DaemonContext(pidfile=lockfile.FileLock("streamingDaemon"), files_preserve=[ferr], stderr=ferr):
+            run(api)
     else:
         r = ReplyGenerator(args.test, "tester")
         print r.reply()
